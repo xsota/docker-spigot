@@ -7,6 +7,8 @@ VOLUME ["/minecraft/app"]
 
 WORKDIR /minecraft
 
+ARG VERSION="--dev"
+
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
@@ -33,7 +35,7 @@ ENV EULA false
 #    && rm -rf tmp/*
 
 RUN cd tmp \
-    && java -jar BuildTools.jar --rev 1.11.2 \
+    && java -jar BuildTools.jar ${VERSION} \
     && cp spigot-*.jar /minecraft/spigot.jar \
     && rm -rf /minecraft/tmp/*
 
