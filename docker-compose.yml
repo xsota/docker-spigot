@@ -3,7 +3,7 @@ version: "3"
 services:
   minecraft:
     build: .
-    image: xsota/spigot:1.11.2
+    image: xsota/spigot
     volumes:
       - ./app:/minecraft/app
     ports:
