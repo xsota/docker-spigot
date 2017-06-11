@@ -7,6 +7,8 @@ VOLUME ["/minecraft/app"]
 
 WORKDIR /minecraft
 
+ARG VERSION="--rev 1.12"
+
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
@@ -29,11 +31,11 @@ ENV EULA false
 #    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub \
 #    && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk \
 #    && apk add glibc-2.25-r0.apk \
-#    && java -jar tmp/BuildTools.jar --rev 1.11.2 \
+#    && java -jar tmp/BuildTools.jar $VERSION \
 #    && rm -rf tmp/*
 
 RUN cd tmp \
-    && java -jar BuildTools.jar --rev 1.11.2 \
+    && java -jar BuildTools.jar $VERSION \
     && cp spigot-*.jar /minecraft/spigot.jar \
     && rm -rf /minecraft/tmp/*
 
