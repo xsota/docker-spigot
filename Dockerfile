@@ -7,7 +7,7 @@ VOLUME ["/minecraft/app"]
 
 WORKDIR /minecraft
 
-ARG VERSION="--rev 1.12.1"
+ARG VERSION="--rev 1.12.2"
 
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
 ADD run.sh /usr/local/bin/run.sh
