@@ -2,4 +2,4 @@
 
 echo eula=${EULA} > /minecraft/app/eula.txt
 
-java -jar /minecraft/spigot.jar nogui
+java -Xms${XMS} -Xmx${XMX} -jar /minecraft/spigot.jar nogui
