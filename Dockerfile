@@ -10,13 +10,12 @@ WORKDIR /minecraft
 ARG VERSION="--rev 1.12.2"
 
 ENV XMS="1024m" \
-    XMX="1024m"
+    XMX="1024m" \
+    EULA="false"
 
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
-
-ENV EULA false
 
 #RUN apt-get update \
 #    && apt-get install \
