@@ -9,8 +9,8 @@ WORKDIR /minecraft
 
 ARG VERSION="--rev 1.16.1"
 
-ENV XMS="1024m" \
-    XMX="1024m" \
+ENV XMS="1024M" \
+    XMX="1024M" \
     EULA="false"
 
 ADD https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar tmp/BuildTools.jar
@@ -37,7 +37,7 @@ RUN chmod +x /usr/local/bin/run.sh
 #    && rm -rf tmp/*
 
 RUN cd tmp \
-    && java -jar BuildTools.jar $VERSION \
+    && java -Xmx$XMX -Xms$XMS -jar BuildTools.jar $VERSION \
     && cp spigot-*.jar /minecraft/spigot.jar \
     && rm -rf /minecraft/tmp/*
 
