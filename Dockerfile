@@ -7,7 +7,7 @@ VOLUME ["/minecraft/app"]
 
 WORKDIR /minecraft
 
-ARG VERSION="--rev 1.16.1"
+ARG VERSION="--rev 1.16.3"
 
 ENV XMS="1024M" \
     XMX="1024M" \
